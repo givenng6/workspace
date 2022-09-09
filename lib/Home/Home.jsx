@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo } from '@expo/vector-icons';
 import Feed from '../Feed/Feed';
-import Chats from '../Chat/Chats';
+import ChatsTab from '../Chat/ChatsTab';
 
 const Tabs = createBottomTabNavigator();
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
               
               if (route.name === 'Feed') {
                 return <Entypo name="home" size={24} color={color} />;
-              } else if (route.name === 'Chats') {
+              } else if (route.name === 'ChatsTab') {
                 return <Entypo name="chat" size={24} color={color} />;
               }
   
@@ -23,7 +23,8 @@ const Home = () => {
           })}
         >
             <Tabs.Screen name = "Feed" component={Feed}/>
-            <Tabs.Screen name = "Chats" component={Chats}/>
+            <Tabs.Screen name = "ChatsTab" component={ChatsTab} 
+            options = {{header: ()=> null}}/>
         </Tabs.Navigator>
     );
 }
