@@ -2,7 +2,12 @@ import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import logo from '../assets/ws2.png';
 
-const Splash = () => {
+const Splash = ({navigation}) => {
+
+    setTimeout(()=>{
+        navigation.replace("Home");
+    }, 3500);
+
     return(
         <View style = {styles.Main}>
             <Image source={logo} style = {styles.Icon}/>
