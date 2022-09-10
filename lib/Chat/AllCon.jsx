@@ -25,10 +25,7 @@ const AllCon = () => {
         <View>
             <ScrollView>
             {list.map((item, index) =>
-                <Contact 
-                key={index}
-                user = {item} 
-                />
+                <Contact key={index} user = {item} />
             )}
             </ScrollView>
         </View>
