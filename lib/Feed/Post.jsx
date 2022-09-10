@@ -2,6 +2,25 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import logo from '../assets/ws3.png';
 
+
+const RSVP = ()=>{
+    return(
+        <View style = {styles.RSVP}>
+            <TouchableOpacity style = {[styles.Clicks, {backgroundColor: 'rgb(0, 163, 255)'}]}>
+                <Text style = {{fontWeight: 'bold', color: 'white'}}>Attending</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style = {[styles.Clicks, {backgroundColor: 'rgb(0, 163, 255)'}]}>
+                <Text  style = {{fontWeight: 'bold' , color: 'white'}}>Not Sure</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style = {[styles.Clicks, {backgroundColor: 'rgb(0, 163, 255)'}]}>
+                <Text  style = {{fontWeight: 'bold', color: 'white'}}>Can't Attend</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
 const Post = ({user, data}) => {
     return (
        <View style = {styles.Main}>
@@ -16,6 +35,14 @@ const Post = ({user, data}) => {
         </TouchableOpacity>
 
         <Text style = {{marginBottom: 4}}>{data.msg}</Text>
+        {data.type === "event" && 
+        <View>
+             <Text style = {styles.Title}>Date: <Text style = {{color: 'rgb(0, 163, 255)'}}>{data.event_date}</Text></Text>
+            <Text style = {styles.Title}>Time: <Text style = {{color: 'rgb(0, 163, 255)'}}>{data.event_time}</Text></Text>
+            <Text style = {styles.Title}>Venue: <Text style = {{color: 'rgb(0, 163, 255)'}}>{data.event_venue}</Text></Text>
+        </View>
+        }
+        {data.type === "event" && <RSVP />}
        
         <Text style = {styles.Time}>12m remaining</Text>
         <Text style = {styles.Time}>{data.time}</Text>
@@ -53,6 +80,23 @@ const styles = StyleSheet.create({
         color: 'gray',
         fontSize: 12,
         //marginTop: 2
+    },
+    RSVP:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginVertical: 12
+    },
+    Clicks:{
+        display: 'flex',
+        justifyContent:'center',
+        alignItems: 'center',
+        paddingVertical: 3,
+        paddingHorizontal: 10,
+        borderRadius: 2
+    },
+    Title:{
+        fontWeight: 'bold'
     }
 });
 
