@@ -1,35 +1,36 @@
 import React from 'react';
-import { useContext } from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import ActionSheet, {SheetManager} from "react-native-actions-sheet";
+import { Entypo } from '@expo/vector-icons';
 import logo from '../assets/ws3.png';
-import {UserContext} from '../UserContext';
 
-const Profile = () => {
-    const {user} = useContext(UserContext);
-    return (
-        <View style = {styles.Main}>
+const Preview =({id, user})=> {
+  return (
+    <ActionSheet id = {id} bounceOnOpen = {true} headerAlwaysVisible = {true} gestureEnabled = {true}>
+    <View style = {styles.Main}>
         <View style = {styles.Avater}>
             <Image source={logo} style = {{width: 230, height: 100}}/>
         </View>
         <Text style = {{fontSize: 22, fontWeight: '600'}}>{user.username}</Text>
-        <Text>{user.emp}</Text>
         <Text style = {{color: 'rgb(0, 163, 255)', fontWeight: '600', marginTop: 5}}>Email</Text>
         <Text>{user.email}</Text>
         <Text style = {{color: 'rgb(0, 163, 255)', fontWeight: '600',  marginTop: 5}}>Department</Text>
         <Text>{user.dept}</Text>
-        
+        <TouchableOpacity style = {styles.Chat}>
+        <Entypo name="chat" size={24} color="white" />
+            <Text style = {{color: 'white', fontWeight: 'bold', fontSize: 17, marginLeft: 4}}>Chat</Text>
+        </TouchableOpacity>
     </View>
-    );
+    </ActionSheet>
+  )
 }
 
 const styles = StyleSheet.create({
     Main:{
         display:'flex',
-        flex: 1,
         flexDirection: 'column',
         alignItems:'center',
-        padding: 12,
-        backgroundColor: 'white'
+        padding: 12
     },
     Chat:{
         display:'flex',
@@ -56,4 +57,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Profile;
+export default Preview;

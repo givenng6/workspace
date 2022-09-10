@@ -4,6 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import logo from '../assets/ws3.png';
 import Post from './Post';
+import Preview from '../Profile/Preview';
 
 const NavBar = ()=>{
     return(
@@ -23,7 +24,7 @@ const NavBar = ()=>{
 }
 
 const Feed = ()=>{
-    const user = {username: "Given Mathebula"};
+    const user = {username: "Given Mathebula", email: "givenng6@gmail.com", dept: 'Mobile Development'};
     const data = {to: 'All Departments', msg: "Announcement!", time: "16:12 12/08/2022"};
     const data2 = {to: 'Information Technology', msg: "Event!", time: "09:22 11/08/2022", type: "event", event_time: '17:00', event_date: '20/08/2022', event_venue: "Google Meet"};
 
@@ -34,6 +35,7 @@ const Feed = ()=>{
             <Post user = {user} data = {data}/>
             <Post user = {user} data = {data2}/>
             </ScrollView>
+            <Preview id="1" user = {user}/>
         </View>
     );
 }

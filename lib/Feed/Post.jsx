@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {SheetManager} from "react-native-actions-sheet";
 import logo from '../assets/ws3.png';
 
 
@@ -22,9 +23,13 @@ const RSVP = ()=>{
 }
 
 const Post = ({user, data}) => {
+    const onPreview = ()=>{
+        SheetManager.show("1");
+    }
+
     return (
        <View style = {styles.Main}>
-        <TouchableOpacity style = {styles.User}>
+        <TouchableOpacity style = {styles.User} onPress = {onPreview}>
             <View style = {styles.Avater}>
             <Image source={logo} style = {{width: 44, height: 19}}/>
             </View>

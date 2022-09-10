@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import logo from '../assets/ws2.png';
+import {UserContext} from '../UserContext';
 
 const Splash = ({navigation}) => {
+    const {setUser} = useContext(UserContext);
+
+    useEffect(()=>{
+        setUser({username: "Given Mathebula", email: "givenng6@gmail.com", dept: 'Mobile Development', emp: "42-368-0703"});
+    }, []);
 
     setTimeout(()=>{
         navigation.replace("Home");
