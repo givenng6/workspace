@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity, } from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import logo from '../assets/ws3.png';
+import Post from './Post';
 
 const NavBar = ()=>{
     return(
@@ -22,15 +23,26 @@ const NavBar = ()=>{
 }
 
 const Feed = ()=>{
+    const user = {username: "Given Mathebula"};
+    const data = {to: 'All Departments', msg: "Announcement!", time: "16:12 10/08/2022"};
+
     return(
-        <View>
+        <View style = {styles.Main}>
             <NavBar />
-            <Text>Feed</Text>
+            <ScrollView>
+            <Post user = {user} data = {data}/>
+            <Post user = {user} data = {data}/>
+            </ScrollView>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    Main:{
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1
+    },
     Nav:{
         display: 'flex',
         flexDirection: 'column',
@@ -52,7 +64,6 @@ const styles = StyleSheet.create({
         alignItems:'center',
         paddingHorizontal: 6,
         paddingVertical: 2,
-        //borderWidth: 1,
         marginRight: 12,
        
     }
