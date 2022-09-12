@@ -1,17 +1,23 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, } from 'react-native';
+import {SheetManager} from "react-native-actions-sheet";
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import logo from '../assets/ws3.png';
 import Post from './Post';
 import Preview from '../Profile/Preview';
+import CraetePost from './CraetePost';
 
 const NavBar = ()=>{
+
+    const onAnnounce = ()=>{
+        SheetManager.show("postSheet101");
+    }
     return(
         <View style = {styles.Nav}>
             <Image source={logo} style = {{width: 52, height: 20}}/>
             <View style = {styles.Actions}>
-                <TouchableOpacity style = {styles.Clickables}>
+                <TouchableOpacity style = {styles.Clickables} onPress = {onAnnounce}>
                 <Ionicons name="ios-megaphone" size={24} color="white" />
                 </TouchableOpacity>
 
@@ -36,6 +42,7 @@ const Feed = ()=>{
             <Post user = {user} data = {data2}/>
             </ScrollView>
             <Preview id="1" user = {user}/>
+            <CraetePost />
         </View>
     );
 }
