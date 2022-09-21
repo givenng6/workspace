@@ -8,10 +8,10 @@ import Preview from '../Profile/Preview';
 const Contact = ({user, index, setId, setUserData})=>{
     const username = user.firstName + " " + user.lastName;
     const onPreview = ()=>{
-        const id = `id ${index}`;
-        setId(id);
-        setUserData({username: username, email: user.email, dept: user.department});
-        SheetManager.show(id);
+        // const id = `id ${index}`;
+        // setId(id);
+        // setUserData({username: username, email: user.email, dept: user.department});
+        //SheetManager.show(id);
     }
 
     return(
@@ -41,7 +41,7 @@ const AllCon = () => {
                 <Contact key={index} index = {index} user = {item} setId = {setId} setUserData = {setUserData}/>
             )}
             </ScrollView>
-        <Preview id = {id} user = {userData}/>
+        
         </View>
     );
 }
