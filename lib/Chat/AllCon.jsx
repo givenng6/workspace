@@ -8,10 +8,7 @@ import Preview from '../Profile/Preview';
 const Contact = ({user, index, setId, setUserData})=>{
     const username = user.firstName + " " + user.lastName;
     const onPreview = ()=>{
-        // const id = `id ${index}`;
-        // setId(id);
-        // setUserData({username: username, email: user.email, dept: user.department});
-        //SheetManager.show(id);
+        
     }
 
     return(
