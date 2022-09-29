@@ -11,7 +11,7 @@ const Splash = ({navigation}) => {
     }, []);
 
     setTimeout(()=>{
-        navigation.replace("Home");
+        navigation.replace("Auth");
     }, 3500);
 
     return(

@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         paddingTop: 49,
         paddingBottom: 9,
-        backgroundColor: 'rgb(0, 163, 255)',
+        backgroundColor: 'black',
         paddingLeft: 12
     },
     Actions:{
